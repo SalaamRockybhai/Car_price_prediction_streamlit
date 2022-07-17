@@ -190,7 +190,7 @@ try:
     lablencoder2  = joblib.load('lablencoder2.joblib')
     scaler        = joblib.load('scaler.joblib')
 except:
-    st.write('pickle files are unable to load")
+    st.write('pickle files are unable to load')
 
 
 
