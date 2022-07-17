@@ -181,7 +181,7 @@ st.write(X_test)
 try:
     regressor     = joblib.load('Newreg.joblib')
 except:
-    st.write('Newreg files are unable to load")
+    st.write('Newreg files are unable to load')
 
 try:
     # Code to test / execute
