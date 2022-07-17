@@ -160,13 +160,15 @@ with st.sidebar:
                          )
 
 
-
-
-onehotencoder = joblib.load('onehotencoder.joblib')
-lablencoder1  = joblib.load('lablencoder1.joblib')
-lablencoder2  = joblib.load('lablencoder2.joblib')
-scaler        = joblib.load('scaler.joblib')
-regressor     = joblib.load('Newreg.joblib')
+try:
+    # Code to test / execute
+    onehotencoder = joblib.load('onehotencoder.joblib')
+    lablencoder1  = joblib.load('lablencoder1.joblib')
+    lablencoder2  = joblib.load('lablencoder2.joblib')
+    scaler        = joblib.load('scaler.joblib')
+    regressor     = joblib.load('Newreg.joblib')
+except:
+    st.write('pickle files are unable to load")
 
 
 
@@ -179,15 +181,24 @@ values = [[levy, manufacturer, model, pyear, category, leather_intr,
        doors, wheel, color, airbags, engine_turbo]]
 
 X_test = pd.DataFrame(values, columns = col)
+st.write(X_test)
+             
+             
 
-X_test_OHE             = onehotencoder.transform(X_test[['category','fuel_typ','gear_box','drive_wheels','doors','wheel','color']])
-X_test['manufacturer'] = lablencoder1.transform(X_test['manufacturer'])
-X_test['model']        = lablencoder2.transform(X_test['model'])
+try:
+    X_test_OHE             = onehotencoder.transform(X_test[['category','fuel_typ','gear_box','drive_wheels','doors','wheel','color']])
+    X_test['manufacturer'] = lablencoder1.transform(X_test['manufacturer'])
+    X_test['model']        = lablencoder2.transform(X_test['model'])
 
-X_test_rem             = X_test.drop(['category','fuel_typ','gear_box','drive_wheels','doors','wheel','color'], axis =1 )
-X_test_transformed     = np.concatenate((X_test_rem , X_test_OHE) ,axis=1)
-X_test_scale  = scaler.transform(X_test_transformed)
-prize = round(regressor.predict(X_test_scale)[0])
+    X_test_rem             = X_test.drop(['category','fuel_typ','gear_box','drive_wheels','doors','wheel','color'], axis =1 )
+    X_test_transformed     = np.concatenate((X_test_rem , X_test_OHE) ,axis=1)
+    X_test_scale  = scaler.transform(X_test_transformed)
+    prize = round(regressor.predict(X_test_scale)[0])
 
-if st.button('Predict Price'):
-     st.write('### The estimated price of your car is just $' + str(prize) + "...!")
+    if st.button('Predict Price'):
+        st.write('### The estimated price of your car is just $' + str(prize) + "...!")
+
+except:
+    st.write('Unable to predict.")
+             
+             
