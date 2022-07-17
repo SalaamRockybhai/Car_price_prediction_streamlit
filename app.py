@@ -159,6 +159,10 @@ with st.sidebar:
                          value       = int(round(df12['airbags'].mean(),0))
                          )
 
+try:
+    regressor     = joblib.load('Newreg.joblib')
+except:
+    st.write('Newreg files are unable to load")
 
 try:
     # Code to test / execute
@@ -166,7 +170,6 @@ try:
     lablencoder1  = joblib.load('lablencoder1.joblib')
     lablencoder2  = joblib.load('lablencoder2.joblib')
     scaler        = joblib.load('scaler.joblib')
-    regressor     = joblib.load('Newreg.joblib')
 except:
     st.write('pickle files are unable to load")
 
