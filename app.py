@@ -173,7 +173,7 @@ values = [[levy, manufacturer, model, pyear, category, leather_intr,
        doors, wheel, color, airbags, engine_turbo]]
 
 X_test = pd.DataFrame(values, columns = col)
-st.write(X_test)
+
              
              
                     
