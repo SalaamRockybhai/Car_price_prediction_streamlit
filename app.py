@@ -179,16 +179,16 @@ st.write(X_test)
                     
 
 try:
-    regressor     = joblib.load('Newreg.joblib')
+    regressor     = joblib.load('Newreg.pkl')
 except:
     st.write('Newreg files are unable to load')
 
 try:
     # Code to test / execute
-    onehotencoder = joblib.load('onehotencoder.joblib')
-    lablencoder1  = joblib.load('lablencoder1.joblib')
-    lablencoder2  = joblib.load('lablencoder2.joblib')
-    scaler        = joblib.load('scaler.joblib')
+    onehotencoder = joblib.load('onehotencoder.pkl')
+    lablencoder1  = joblib.load('lablencoder1.pkl')
+    lablencoder2  = joblib.load('lablencoder2.pkl')
+    scaler        = joblib.load('scaler.pkl')
 except:
     st.write('pickle files are unable to load')
 
