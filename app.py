@@ -137,7 +137,7 @@ with st.sidebar:
 
      # wheel
      wheel = st.selectbox(
-          label   = "How many wheels are there in your car?",
+          label   = "What is the wheels type in your car?",
           options = df12['wheel'].value_counts().index
           )
 
