@@ -159,6 +159,25 @@ with st.sidebar:
                          value       = int(round(df12['airbags'].mean(),0))
                          )
 
+          
+          
+          
+          
+
+col = ['levy', 'manufacturer', 'model', 'prd_yr', 'category', 'leather_intr',
+       'fuel_typ', 'engine_vol', 'mileage(km)', 'gear_box', 'drive_wheels',
+       'doors', 'wheel', 'color', 'airbags', 'engine_turbo']
+
+values = [[levy, manufacturer, model, pyear, category, leather_intr,
+       fuel_typ, engine_vol, mileage, gear_box, drive_wheels,
+       doors, wheel, color, airbags, engine_turbo]]
+
+X_test = pd.DataFrame(values, columns = col)
+st.write(X_test)
+             
+             
+                    
+'''
 try:
     regressor     = joblib.load('Newreg.joblib')
 except:
@@ -175,18 +194,6 @@ except:
 
 
 
-col = ['levy', 'manufacturer', 'model', 'prd_yr', 'category', 'leather_intr',
-       'fuel_typ', 'engine_vol', 'mileage(km)', 'gear_box', 'drive_wheels',
-       'doors', 'wheel', 'color', 'airbags', 'engine_turbo']
-
-values = [[levy, manufacturer, model, pyear, category, leather_intr,
-       fuel_typ, engine_vol, mileage, gear_box, drive_wheels,
-       doors, wheel, color, airbags, engine_turbo]]
-
-X_test = pd.DataFrame(values, columns = col)
-st.write(X_test)
-             
-             
 
 try:
     X_test_OHE             = onehotencoder.transform(X_test[['category','fuel_typ','gear_box','drive_wheels','doors','wheel','color']])
@@ -203,5 +210,5 @@ try:
 
 except:
     st.write('Unable to predict.")
-             
+'''             
              
