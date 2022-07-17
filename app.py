@@ -177,7 +177,7 @@ st.write(X_test)
              
              
                     
-'''
+
 try:
     regressor     = joblib.load('Newreg.joblib')
 except:
@@ -210,5 +210,3 @@ try:
 
 except:
     st.write('Unable to predict.")
-'''             
-             
