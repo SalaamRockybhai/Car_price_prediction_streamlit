@@ -1,4 +1,3 @@
-gunicorn
 numpy
 scipy
 scikit-learn
